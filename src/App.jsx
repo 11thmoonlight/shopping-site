@@ -13,6 +13,9 @@ import Plates from "./pages/Plates";
 import Success from "./pages/Success";
 import Tiles from "./pages/Tiles";
 import Ute from "./pages/Ute";
+import Popular from "./ui/Popular";
+import NewSection from "./ui/NewSection";
+import Sale from "./ui/Sale";
 
 const queryClient = new QueryClient({
   defaulatOptions: { queries: { staleTime: 0 } },
@@ -27,13 +30,18 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="index" />} />
-            <Route path="index" element={<Index />} />
+            <Route path="index" element={<Index />}>
+              <Route path="/index/sale" element={<Sale />} />
+              <Route path="/index/new" element={<NewSection />} />
+              <Route path="/index/popular" element={<Popular />} />
+            </Route>
             <Route path="hot" element={<Hot />} />
             <Route path="new" element={<New />} />
             <Route path="plates" element={<Plates />} />
             <Route path="tiles" element={<Tiles />} />
             <Route path="ute" element={<Ute />} />
           </Route>
+
           <Route path="success" element={<Success />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="payment" element={<Payment />} />

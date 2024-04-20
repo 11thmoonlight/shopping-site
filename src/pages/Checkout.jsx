@@ -9,6 +9,22 @@ const Container = styled.label`
     lg:mt-14 md:mt-12 sm:mt-10 mt-8`}
 `;
 
+const TotalPrePrice = cartData
+  .map((data) => data.preprice)
+  .reduce((acc, cur) => acc.concat(+cur), [])
+  .reduce((acc, cur) => acc + cur, 0);
+
+const totalPrice = cartData
+  .map((data) => data.price)
+  .reduce((acc, cur) => acc.concat(+cur), [])
+  .reduce((acc, cur) => acc + cur, 0);
+
+const discounts =
+  cartData
+    .map((data) => data.preprice)
+    .reduce((acc, cur) => acc.concat(+cur), [])
+    .reduce((acc, cur) => acc + cur, 0) - totalPrice;
+
 function Checkout() {
   return (
     <div>
@@ -68,7 +84,7 @@ function Checkout() {
             items add up to
           </span>
           <span className="block text-lg text-neutral-700 font-bold mb-4">
-            $202.56
+            ${TotalPrePrice}
           </span>
           <span className="block text-sm text-neutral-400 font-bold mb-2">
             shipping
@@ -80,13 +96,13 @@ function Checkout() {
             discount
           </span>
           <span className="block text-lg text-red-500 font-bold mb-4">
-            $52.26
+            ${discounts}
           </span>
           <span className="block text-sm text-neutral-400 font-bold mb-2">
             total due
           </span>
           <span className="block text-2xl text-neutral-700 font-bold mb-4">
-            $140.23
+            ${totalPrice}
           </span>
           <span className="block text-sm text-neutral-400 font-bold mb-2">
             payment method
