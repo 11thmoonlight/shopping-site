@@ -2,13 +2,18 @@ import { useForm } from "react-hook-form";
 import tw, { styled } from "twin.macro";
 import FormRow from "../ui/FormRow";
 import Input from "../ui/Input";
+import { NavLink } from "react-router-dom";
 
 const Form = styled.form`
-  ${tw`md:text-lg`}
+  ${tw`md:text-lg relative`}
 `;
 
 const Select = styled.select`
   ${tw`block py-2 px-3 border border-neutral-400 rounded-md w-72 md:w-96 mb-4`}
+`;
+
+const StyledNavLink = styled(NavLink)`
+  ${tw`bg-teal-500 hover:bg-teal-600 w-60 h-14 text-white tracking-wide font-semibold text-sm cursor-pointer mt-5`}
 `;
 
 function UserForm() {
@@ -152,13 +157,13 @@ function UserForm() {
         />
       </FormRow>
 
-      <input
-        type="hidden"
-        name="paymentMethod"
-        id="paymentMethod"
-        value="usdt"
-      />
-      <button>yes</button>
+      <StyledNavLink
+        role="button"
+        style={{ position: "absolute", top: "28rem", left: "37rem" }}
+        to="/payment"
+      >
+        CONTINUE
+      </StyledNavLink>
     </Form>
   );
 }

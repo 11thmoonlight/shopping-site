@@ -124,13 +124,6 @@ function Checkout() {
               title="Tether | USDT"
             />
           </div>
-          <input
-            type="submit"
-            form="orderInfo"
-            value="CONTINUE"
-            className="bg-teal-500 hover:bg-teal-600 w-60 h-14
-            text-white tracking-wide font-semibold text-sm cursor-pointer mt-5"
-          />
         </div>
       </div>
     </div>
