@@ -56,7 +56,7 @@
   cursor: pointer;
 }
 
-.sampleListItem.active {
+.sampleListItem:focus {
   border-color: black;
   color: black;
   font-weight: 600;

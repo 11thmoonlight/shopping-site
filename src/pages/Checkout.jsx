@@ -3,10 +3,16 @@ import UserForm from "../ui/UserForm";
 import { cartData } from "../data/cartData";
 import tw, { styled } from "twin.macro";
 import CheckoutTable from "../ui/CheckoutTable";
+import { NavLink } from "react-router-dom";
+import { userData } from "../data/userData";
 
 const Container = styled.label`
   ${tw`flex flex-col lg:items-center overflow-y-scroll pb-4
     lg:mt-14 md:mt-12 sm:mt-10 mt-8`}
+`;
+
+const Button = styled(NavLink)`
+  ${tw`text-center pt-4 bg-teal-500 hover:bg-teal-600 w-60 h-14 text-white tracking-wide font-semibold text-sm cursor-pointer mt-5`}
 `;
 
 const TotalPrePrice = cartData
@@ -124,6 +130,7 @@ function Checkout() {
               title="Tether | USDT"
             />
           </div>
+          <Button to="/payment">CONTINUE</Button>
         </div>
       </div>
     </div>

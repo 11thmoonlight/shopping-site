@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 import { cartData } from "../data/cartData";
 
 const StyledNavLink = styled(NavLink)`
-  ${tw`bg-red-500 hover:bg-red-600 shadow-lg w-48 h-12 text-white text-base font-semibold mt-4 text-center`}
+  ${tw`bg-red-500 hover:bg-red-600 shadow-lg w-48 h-12 text-white text-base font-semibold mt-4 text-center pt-2`}
 `;
 
 const Container = styled.div`

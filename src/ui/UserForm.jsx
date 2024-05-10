@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import tw, { styled } from "twin.macro";
 import FormRow from "../ui/FormRow";
 import Input from "../ui/Input";
-import { NavLink } from "react-router-dom";
+import { userData } from "../data/userData";
 
 const Form = styled.form`
   ${tw`md:text-lg relative`}
@@ -12,15 +12,13 @@ const Select = styled.select`
   ${tw`block py-2 px-3 border border-neutral-400 rounded-md w-72 md:w-96 mb-4`}
 `;
 
-const StyledNavLink = styled(NavLink)`
+const StyledButton = styled.button`
   ${tw`bg-teal-500 hover:bg-teal-600 w-60 h-14 text-white tracking-wide font-semibold text-sm cursor-pointer mt-5`}
 `;
 
 function UserForm() {
   const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
-
-  let userData = [];
 
   function onSubmit({
     fullName,
@@ -33,7 +31,7 @@ function UserForm() {
     email,
     phoneNo,
   }) {
-    userData.push(
+    userData.push({
       fullName,
       add1,
       add2,
@@ -42,8 +40,8 @@ function UserForm() {
       country,
       zip,
       email,
-      phoneNo
-    );
+      phoneNo,
+    });
     console.log(userData);
   }
 
@@ -157,13 +155,7 @@ function UserForm() {
         />
       </FormRow>
 
-      <StyledNavLink
-        role="button"
-        style={{ position: "absolute", top: "28rem", left: "37rem" }}
-        to="/payment"
-      >
-        CONTINUE
-      </StyledNavLink>
+      <StyledButton>SUBMIT</StyledButton>
     </Form>
   );
 }
